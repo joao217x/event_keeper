@@ -1,10 +1,10 @@
 import 'package:event_keeper/shared/theme/app_color.dart';
 import 'package:flutter/material.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+class AppBarMyWidget extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback? logout;
 
-  const CustomAppBar({Key? key, this.logout}) : super(key: key);
+  const AppBarMyWidget({Key? key, this.logout}) : super(key: key);
 
   @override
   Size get preferredSize => const Size.fromHeight(60);
