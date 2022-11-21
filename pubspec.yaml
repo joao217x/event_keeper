@@ -18,10 +18,16 @@ dependencies:
   firebase_core: ^2.3.0
   firebase_auth: ^4.1.3
 
+  #MOBX
+  mobx: ^2.1.3
+  flutter_mobx: ^2.0.6+5
+  build_runner: ^2.3.2
+  mobx_codegen: ^2.1.1
+
   #API
   dio: ^4.0.6
 
-  #STATE MANAGEMENT
+  #SERVICE LOCATOR
   get_it: ^7.2.0
 
   #UX/UI
