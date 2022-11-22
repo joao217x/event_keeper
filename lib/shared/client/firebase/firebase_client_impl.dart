@@ -1,8 +1,10 @@
 import 'package:event_keeper/shared/client/firebase/interface/firebase_client_interface.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class FirebaseImpl implements FirebaseClientInterface {
-  final client = FirebaseAuth.instance;
+class FirebaseClientImpl implements FirebaseClientInterface {
+  final FirebaseAuth client;
+
+  FirebaseClientImpl({required this.client});
 
   @override
   Future<UserCredential> login({
