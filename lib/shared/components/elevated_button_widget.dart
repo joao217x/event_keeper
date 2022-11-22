@@ -1,13 +1,13 @@
 import 'package:event_keeper/shared/theme/app_color.dart';
 import 'package:flutter/material.dart';
 
-class CustomElevatedButton extends StatelessWidget {
-  final String text;
+class ElevatedButtonWidget extends StatelessWidget {
+  final Widget? child;
   final Function() onPressed;
 
-  const CustomElevatedButton({
+  const ElevatedButtonWidget({
     Key? key,
-    required this.text,
+    required this.child,
     required this.onPressed,
   }) : super(key: key);
 
@@ -16,19 +16,13 @@ class CustomElevatedButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        fixedSize: const Size.fromHeight(38),
+        fixedSize: const Size.fromHeight(46),
         backgroundColor: AppColor.purple,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(45),
         ),
       ),
-      child: Text(
-        text,
-        style: const TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w600,
-        ),
-      ),
+      child: child,
     );
   }
 }
