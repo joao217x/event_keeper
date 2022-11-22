@@ -1,14 +1,15 @@
 import 'package:dio/dio.dart';
-import 'package:event_keeper/features/login/service/firebase_service.dart';
+import 'package:event_keeper/features/login/controller/login_controller.dart';
+import 'package:event_keeper/features/login/service/firebase_service_impl.dart';
 import 'package:event_keeper/features/login/service/interface/firebase_service_interface.dart';
-import 'package:event_keeper/shared/client/api/dio_impl.dart';
+import 'package:event_keeper/shared/client/api/dio_client_impl.dart';
 import 'package:event_keeper/shared/client/api/interface/api_client_interface.dart';
-import 'package:event_keeper/shared/client/firebase/firebase_impl.dart';
+import 'package:event_keeper/shared/client/firebase/firebase_client_impl.dart';
 import 'package:event_keeper/shared/client/firebase/interface/firebase_client_interface.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
 
-GetIt getIt = GetIt.instance();
+GetIt getIt = GetIt.instance;
 
 class AppDependencies {
   void setup() {
@@ -17,12 +18,21 @@ class AppDependencies {
     getIt.registerFactory<FirebaseAuth>(() => FirebaseAuth.instance);
 
     //Implementations
-    getIt.registerFactory<ApiClientInterface>(() => DioImpl());
-    getIt.registerFactory<FirebaseClientInterface>(() => FirebaseImpl());
+    getIt.registerFactory<ApiClientInterface>(
+      () => DioClientImpl(client: getIt<Dio>()),
+    );
+    getIt.registerFactory<FirebaseClientInterface>(
+      () => FirebaseClientImpl(client: getIt<FirebaseAuth>()),
+    );
 
     //Services
     getIt.registerFactory<FirebaseServiceInterface>(
-      () => FirebaseService(firebaseClient: getIt<FirebaseClientInterface>()),
+      () => FirebaseServiceImpl(client: getIt<FirebaseClientInterface>()),
+    );
+
+    //Controllers
+    getIt.registerFactory<LoginController>(
+      () => LoginController(firebase: getIt<FirebaseServiceInterface>()),
     );
   }
 }
