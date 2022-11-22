@@ -4,7 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class FirebaseServiceImpl implements FirebaseServiceInterface {
   final FirebaseClientInterface client;
-  // final FirebaseAuth client;
 
   FirebaseServiceImpl({required this.client});
 
