@@ -126,7 +126,7 @@ class LoginScreen extends StatelessWidget {
                   password: controller.password,
                 );
                 if (result.runtimeType == UserCredential) {
-                  Navigator.popAndPushNamed(context, '/home');
+                  Navigator.popAndPushNamed(context, '/tabs');
                 }
               } on Exception catch (e) {
                 log(e.toString());

@@ -1,10 +1,10 @@
 import 'package:event_keeper/shared/theme/app_color.dart';
 import 'package:flutter/material.dart';
 
-class AppBarMyWidget extends StatelessWidget implements PreferredSizeWidget {
+class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback? logout;
 
-  const AppBarMyWidget({Key? key, this.logout}) : super(key: key);
+  const AppBarWidget({Key? key, this.logout}) : super(key: key);
 
   @override
   Size get preferredSize => const Size.fromHeight(60);
@@ -41,12 +41,12 @@ class AppBarMyWidget extends StatelessWidget implements PreferredSizeWidget {
   }
 }
 
-class CustomAppBarNavigator extends StatelessWidget
+class AppBarNavigatorWidget extends StatelessWidget
     implements PreferredSizeWidget {
   final String title;
   final Function() onPressed;
 
-  const CustomAppBarNavigator({
+  const AppBarNavigatorWidget({
     Key? key,
     required this.title,
     required this.onPressed,
