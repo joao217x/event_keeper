@@ -1,4 +1,4 @@
-import 'package:event_keeper/features/login/service/interface/firebase_service_interface.dart';
+import 'package:event_keeper/shared/service/firebase/interface/firebase_service_interface.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mobx/mobx.dart';
 part 'login_controller.g.dart';
@@ -20,15 +20,6 @@ abstract class _LoginControllerBase with Store {
         email: email,
         password: password,
       );
-    } on FirebaseAuthException catch (_) {
-      rethrow;
-    }
-  }
-
-  @action
-  Future<void> logout() async {
-    try {
-      await firebase.logout();
     } on FirebaseAuthException catch (_) {
       rethrow;
     }

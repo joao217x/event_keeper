@@ -83,14 +83,6 @@ mixin _$LoginController on _LoginControllerBase, Store {
         .run(() => super.login(email: email, password: password));
   }
 
-  late final _$logoutAsyncAction =
-      AsyncAction('_LoginControllerBase.logout', context: context);
-
-  @override
-  Future<void> logout() {
-    return _$logoutAsyncAction.run(() => super.logout());
-  }
-
   late final _$_LoginControllerBaseActionController =
       ActionController(name: '_LoginControllerBase', context: context);
 
