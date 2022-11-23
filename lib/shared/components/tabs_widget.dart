@@ -2,8 +2,8 @@ import 'package:event_keeper/shared/theme/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class CustomTabWidget extends StatelessWidget {
-  const CustomTabWidget({Key? key}) : super(key: key);
+class TabBarWidget extends StatelessWidget {
+  const TabBarWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,29 +13,32 @@ class CustomTabWidget extends StatelessWidget {
       labelColor: Colors.black,
       unselectedLabelColor: Colors.grey,
       tabs: [
-        Padding(
-          padding: EdgeInsets.only(top: 25, bottom: 6),
-          child: Tab(child: TabText(text: '   Eventos soft   ')),
-        ),
-        Padding(
-          padding: EdgeInsets.only(top: 25, bottom: 6),
-          child: Tab(child: TabText(text: '   Meus eventos   ')),
-        ),
+        TabWidget(text: 'Eventos soft'),
+        TabWidget(text: 'Eventos salvos')
       ],
     );
   }
 }
 
-class TabText extends StatelessWidget {
+class TabWidget extends StatelessWidget {
   final String text;
 
-  const TabText({Key? key, required this.text}) : super(key: key);
+  const TabWidget({Key? key, required this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      text,
-      style: GoogleFonts.montserrat(fontSize: 12, fontWeight: FontWeight.w500),
+    return Padding(
+      padding: const EdgeInsets.only(top: 25, bottom: 6),
+      child: Tab(
+        child: Text(
+          text,
+          textAlign: TextAlign.center,
+          style: GoogleFonts.montserrat(
+            fontSize: 12,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ),
     );
   }
 }
