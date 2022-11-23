@@ -1,4 +1,4 @@
-import 'package:event_keeper/features/login/service/interface/firebase_service_interface.dart';
+import 'package:event_keeper/shared/service/firebase/interface/firebase_service_interface.dart';
 import 'package:event_keeper/shared/client/firebase/interface/firebase_client_interface.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
