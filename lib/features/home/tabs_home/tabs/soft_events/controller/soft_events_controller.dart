@@ -1,80 +1,48 @@
+import 'package:event_keeper/features/home/model/event_model.dart';
+import 'package:event_keeper/features/home/tabs_home/tabs/soft_events/service/event_api/interface/event_api_service_interface.dart';
 import 'package:flutter/material.dart';
 
 class SoftEventsController extends ChangeNotifier {
-  // final AgendaClient agendaClient = AgendaClient();
+  final EventApiServiceInterface eventInterface;
 
-  // //event list
-  // @observable
-  // List<EventModel> eventList = [];
-  // @action
-  // void setEventList(List<EventModel> value) => eventList = value;
+  SoftEventsController({required this.eventInterface});
 
-  List<void> eventList = [];
-  void setEventList(List value) {
-    eventList = value;
-    notifyListeners();
+  List<EventModel> onlineEventList = [];
+
+  Future<List<EventModel>> getEventList() async {
+    try {
+      final response = await eventInterface.getEventList();
+      onlineEventList = response;
+      notifyListeners();
+
+      return onlineEventList;
+    } catch (_) {
+      notifyListeners();
+      return [];
+    }
   }
 
-  // //loading
-  // @observable
-  // bool isLoading = false;
-  // @action
-  // void setIsLoading(bool value) => isLoading = value;
   bool isLoading = false;
   void setIsLoading(bool value) {
     isLoading = value;
     notifyListeners();
   }
 
-  // //error
-  // @observable
-  // bool isError = false;
-  // @action
-  // void setIsError(bool value) => isError = value;
   bool isError = false;
   void setIsError(bool value) {
     isError = value;
     notifyListeners();
   }
 
-  // @action
-  // void initLoading() {
-  //   setIsError(false);
-  //   setIsLoading(true);
-  // }
   void initLoading() {
     setIsError(false);
     setIsLoading(true);
     notifyListeners();
   }
 
-  // @action
-  // void endLoading() {
-  //   setIsError(false);
-  //   setIsLoading(false);
-  // }
   void endLoading() {
     setIsError(false);
     setIsLoading(true);
-    notifyListeners();
-  }
-
-  // @action
-  // Future<void> getListaEventos() async {
-  //   try {
-  //     initLoading();
-
-  //     final result = await agendaClient.getListaEventosAgenda();
-  //     setEventList(result);
-
-  //     endLoading();
-  //     inspect(eventList);
-  //   } catch (e) {
-  //     setIsError(true);
-  //     throw e.toString();
-  //   }
-  // }
-  void getEventList() {
     notifyListeners();
   }
 }

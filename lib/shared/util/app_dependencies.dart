@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:event_keeper/features/home/tabs_home/tabs/soft_events/service/event_api/event_api_service_impl.dart';
+import 'package:event_keeper/features/home/tabs_home/tabs/soft_events/service/event_api/interface/event_api_service_interface.dart';
 import 'package:event_keeper/features/home/tabs_home/tabs/soft_events/controller/soft_events_controller.dart';
 import 'package:event_keeper/features/home/tabs_home/controller/tabs_home_controller.dart';
 import 'package:event_keeper/features/login/controller/login_controller.dart';
@@ -16,20 +18,23 @@ GetIt getIt = GetIt.instance;
 class AppDependencies {
   void setup() {
     //Libs
-    getIt.registerFactory<Dio>(() => Dio());
     getIt.registerFactory<FirebaseAuth>(() => FirebaseAuth.instance);
+    getIt.registerFactory<Dio>(() => Dio());
 
     //Implementations
-    getIt.registerFactory<ApiClientInterface>(
-      () => DioClientImpl(client: getIt<Dio>()),
-    );
     getIt.registerFactory<FirebaseClientInterface>(
       () => FirebaseClientImpl(client: getIt<FirebaseAuth>()),
+    );
+    getIt.registerFactory<ApiClientInterface>(
+      () => DioClientImpl(client: getIt<Dio>()),
     );
 
     //Services
     getIt.registerFactory<FirebaseServiceInterface>(
       () => FirebaseServiceImpl(client: getIt<FirebaseClientInterface>()),
+    );
+    getIt.registerFactory<EventApiServiceInterface>(
+      () => EventApiServiceImpl(clientInterface: getIt<ApiClientInterface>()),
     );
 
     //Controllers
@@ -42,6 +47,10 @@ class AppDependencies {
         firebaseInterface: getIt<FirebaseServiceInterface>(),
       ),
     );
-    getIt.registerFactory<SoftEventsController>(() => SoftEventsController());
+    getIt.registerFactory<SoftEventsController>(
+      () => SoftEventsController(
+        eventInterface: getIt<EventApiServiceInterface>(),
+      ),
+    );
   }
 }
