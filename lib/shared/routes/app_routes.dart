@@ -1,5 +1,5 @@
-import 'package:event_keeper/features/home/tabs/soft_events/view/event_details/soft_event_info_tab.dart';
-import 'package:event_keeper/features/home/view/tabs_home_screen.dart';
+import 'package:event_keeper/features/home/view/tabs/soft_events/event_details/soft_event_info_tab.dart';
+import 'package:event_keeper/features/home/view/home_screen.dart';
 import 'package:event_keeper/features/login/view/login_screen.dart';
 import 'package:event_keeper/features/splash/view/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +9,7 @@ class AppRoutes {
     return {
       '/splash': (context) => const SplashScreen(),
       '/login': (context) => LoginScreen(),
-      '/tabs': (context) => TabsHomeScreen(),
+      '/home': (context) => HomeScreen(),
       '/details': (context) => const SoftEventInfoTab(),
     };
   }
