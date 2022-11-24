@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SavedEventsControllerScreen extends StatelessWidget {
-  const SavedEventsControllerScreen({Key? key}) : super(key: key);
+class SavedEventsTabs extends StatelessWidget {
+  const SavedEventsTabs({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

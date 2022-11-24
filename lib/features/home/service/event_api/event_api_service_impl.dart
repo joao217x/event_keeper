@@ -1,5 +1,5 @@
 import 'package:event_keeper/features/home/model/event_model.dart';
-import 'package:event_keeper/features/home/tabs/soft_events/service/event_api/interface/event_api_service_interface.dart';
+import 'package:event_keeper/features/home/service/event_api/interface/event_api_service_interface.dart';
 import 'package:event_keeper/shared/client/api/interface/api_client_interface.dart';
 import 'package:event_keeper/shared/util/app_urls.dart';
 

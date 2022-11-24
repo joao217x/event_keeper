@@ -1,15 +1,15 @@
-import 'package:event_keeper/features/home/tabs/saved_events/view/saved_events_controller_screen.dart';
-import 'package:event_keeper/features/home/tabs/soft_events/view/soft_events_controller_screen.dart';
-import 'package:event_keeper/features/home/controller/tabs_home_controller.dart';
+import 'package:event_keeper/features/home/controller/firebase_controller.dart';
+import 'package:event_keeper/features/home/view/tabs/saved_events/saved_events_tabs.dart';
+import 'package:event_keeper/features/home/view/tabs/soft_events/soft_events_tabs.dart';
 import 'package:event_keeper/shared/components/appbar_widget.dart';
 import 'package:event_keeper/shared/components/tabs_widget.dart';
-import 'package:event_keeper/shared/util/app_dependencies.dart';
+import 'package:event_keeper/shared/core/app_dependencies.dart';
 import 'package:flutter/material.dart';
 
-class TabsHomeScreen extends StatelessWidget {
-  TabsHomeScreen({Key? key}) : super(key: key);
+class HomeScreen extends StatelessWidget {
+  HomeScreen({Key? key}) : super(key: key);
 
-  final controller = getIt<TabsHomeController>();
+  final controller = getIt<FirebaseController>();
 
   @override
   Widget build(BuildContext context) {
@@ -50,8 +50,8 @@ class TabsHomeScreen extends StatelessWidget {
         Expanded(
           child: TabBarView(
             children: [
-              SoftEventsControllerScreen(),
-              const SavedEventsControllerScreen(),
+              SoftEventsTabs(),
+              const SavedEventsTabs(),
             ],
           ),
         ),
