@@ -4,22 +4,24 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class EventCard extends StatelessWidget {
   final String weekDay;
-  final String day;
+  final String dayAndMonth;
   final String eventName;
   final String eventDescription;
   final String eventStartTime;
   final String eventEndTime;
   final String eventAddress;
+  final IconButton iconButton;
 
   const EventCard({
     Key? key,
     required this.weekDay,
-    required this.day,
+    required this.dayAndMonth,
     required this.eventName,
     required this.eventDescription,
     required this.eventStartTime,
     required this.eventEndTime,
     required this.eventAddress,
+    required this.iconButton,
   }) : super(key: key);
 
   @override
@@ -28,35 +30,57 @@ class EventCard extends StatelessWidget {
   }
 
   Widget _content() {
-    return IntrinsicHeight(
-      child: Row(
-        children: [
-          _eventDate(),
-          _eventContent(),
-        ],
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(6),
+        child: IntrinsicHeight(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              _leftBar(),
+              _eventContent(),
+            ],
+          ),
+        ),
       ),
     );
   }
 
-  Widget _eventDate() {
+  Widget _leftBar() {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(right: 8),
+        SizedBox(
+          width: 50,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                weekDay,
-                style: const TextStyle(color: AppColor.grey),
-              ),
-              Text(day),
-              const VerticalDivider(
-                thickness: 2,
-                width: 2,
-              ),
+              _eventDate(),
+              iconButton,
             ],
           ),
+        ),
+        const VerticalDivider(
+          thickness: 2,
+          width: 2,
+        ),
+      ],
+    );
+  }
+
+  Widget _eventDate() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          weekDay,
+          style: const TextStyle(color: AppColor.grey, fontSize: 12),
+        ),
+        const SizedBox(height: 3),
+        Text(
+          dayAndMonth,
+          style: const TextStyle(fontWeight: FontWeight.w600),
         ),
       ],
     );
@@ -73,6 +97,7 @@ class EventCard extends StatelessWidget {
           _eventDescription(),
           _eventTime(),
           _eventAddress(),
+          // _saveEventButton(),
         ],
       ),
     );
@@ -121,23 +146,7 @@ class EventCard extends StatelessWidget {
       child: Row(
         children: [
           Text(
-            eventStartTime,
-            style: const TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w600,
-              color: AppColor.orange,
-            ),
-          ),
-          const Text(
-            '  -  ',
-            style: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.bold,
-              color: Colors.grey,
-            ),
-          ),
-          Text(
-            eventEndTime,
+            '$eventStartTime - $eventEndTime',
             style: const TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w600,
@@ -167,6 +176,21 @@ class EventCard extends StatelessWidget {
             ),
           )
         ],
+      ),
+    );
+  }
+
+  Widget _saveEventButton() {
+    return TextButton.icon(
+      onPressed: () {},
+      icon: Icon(Icons.add_box),
+      label: Text(
+        'EVENTO NÃO SALVO',
+        style: TextStyle(
+          fontSize: 12,
+          fontWeight: FontWeight.w700,
+          color: AppColor.red,
+        ),
       ),
     );
   }
