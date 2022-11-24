@@ -1,6 +1,6 @@
-import 'package:event_keeper/features/home/tabs_home/controller/tabs_home_controller.dart';
-import 'package:event_keeper/features/home/tabs_home/tabs/soft_events/view/error/soft_event_load_error_tab.dart';
-import 'package:event_keeper/features/home/tabs_home/tabs/soft_events/view/error/soft_event_non_registered_tab.dart';
+import 'package:event_keeper/features/home/controller/tabs_home_controller.dart';
+import 'package:event_keeper/features/home/tabs/soft_events/view/error/soft_event_load_error_tab.dart';
+import 'package:event_keeper/features/home/tabs/soft_events/view/error/soft_event_non_registered_tab.dart';
 import 'package:event_keeper/shared/components/event_card.dart';
 import 'package:event_keeper/shared/theme/app_color.dart';
 import 'package:event_keeper/shared/util/app_dependencies.dart';

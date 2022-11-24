@@ -14,7 +14,8 @@ class SoftEventInfoTab extends StatelessWidget {
       appBar: AppBarNavigatorWidget(
         title: 'Detalhes do evento',
         onPressed: () {
-          Navigator.popAndPushNamed(context, '/tabs');
+          // Navigator.popAndPushNamed(context, '/tabs');
+          Navigator.popUntil(context, ModalRoute.withName('/tabs'));
         },
       ),
       body: _body(context),

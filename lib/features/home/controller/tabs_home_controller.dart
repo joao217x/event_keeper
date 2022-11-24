@@ -1,5 +1,5 @@
 import 'package:event_keeper/features/home/model/event_model.dart';
-import 'package:event_keeper/features/home/tabs_home/tabs/soft_events/service/event_api/interface/event_api_service_interface.dart';
+import 'package:event_keeper/features/home/tabs/soft_events/service/event_api/interface/event_api_service_interface.dart';
 import 'package:event_keeper/shared/service/firebase/interface/firebase_service_interface.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';

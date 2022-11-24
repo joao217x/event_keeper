@@ -1,6 +1,6 @@
-import 'package:event_keeper/features/home/tabs_home/tabs/saved_events/view/saved_events_controller_screen.dart';
-import 'package:event_keeper/features/home/tabs_home/tabs/soft_events/view/soft_events_controller_screen.dart';
-import 'package:event_keeper/features/home/tabs_home/controller/tabs_home_controller.dart';
+import 'package:event_keeper/features/home/tabs/saved_events/view/saved_events_controller_screen.dart';
+import 'package:event_keeper/features/home/tabs/soft_events/view/soft_events_controller_screen.dart';
+import 'package:event_keeper/features/home/controller/tabs_home_controller.dart';
 import 'package:event_keeper/shared/components/appbar_widget.dart';
 import 'package:event_keeper/shared/components/tabs_widget.dart';
 import 'package:event_keeper/shared/util/app_dependencies.dart';
