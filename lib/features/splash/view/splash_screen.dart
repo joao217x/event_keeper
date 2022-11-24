@@ -1,6 +1,6 @@
-import 'dart:async';
+import 'package:event_keeper/features/splash/controller/splash_controller.dart';
+import 'package:event_keeper/shared/core/app_dependencies.dart';
 import 'package:event_keeper/shared/theme/app_color.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -12,13 +12,11 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  final controller = getIt<SplashController>();
+
   @override
   void initState() {
-    Timer(const Duration(seconds: 3), () {
-      FirebaseAuth.instance.currentUser != null
-          ? Navigator.popAndPushNamed(context, '/tabs')
-          : Navigator.popAndPushNamed(context, '/login');
-    });
+    controller.checkLogged(context);
     super.initState();
   }
 
