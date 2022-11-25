@@ -28,7 +28,7 @@ class TabWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 25, bottom: 6),
+      padding: const EdgeInsets.only(top:10, bottom: 0),
       child: Tab(
         child: Text(
           text,

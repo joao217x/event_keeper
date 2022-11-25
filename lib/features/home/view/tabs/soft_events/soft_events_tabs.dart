@@ -40,18 +40,18 @@ class SoftEventsTabs extends StatelessWidget {
     return ListView.builder(
       itemCount: controller.onlineEventList.length,
       itemBuilder: ((context, index) {
-        final item = controller.onlineEventList[index];
+        final event = controller.onlineEventList[index];
 
         return GestureDetector(
           onTap: () {
-            Navigator.pushNamed(context, '/details', arguments: item);
+            Navigator.pushNamed(context, '/details', arguments: event);
           },
           child: EventCard(
             weekDay: AppParses.weekDay(
-              DateTime.parse(item.startTime),
+              DateTime.parse(event.startTime),
             ),
             dayAndMonth: AppParses.dayMonth(
-              DateTime.parse(item.startTime),
+              DateTime.parse(event.startTime),
             ),
             iconButton: IconButton(
               onPressed: () {},
@@ -64,18 +64,19 @@ class SoftEventsTabs extends StatelessWidget {
                   const Icon(
                 Icons.close,
                 color: AppColor.red,
-                size: 20,
+                size: 30,
               ),
             ),
-            eventName: item.eventName,
-            eventDescription: item.eventDescription,
+            thumbnail: event.thumbnail,
+            eventName: event.eventName,
+            eventDescription: event.eventDescription,
             eventStartTime: AppParses.hour(
-              DateTime.parse(item.startTime),
+              DateTime.parse(event.startTime),
             ),
             eventEndTime: AppParses.hour(
-              DateTime.parse(item.endTime),
+              DateTime.parse(event.endTime),
             ),
-            eventAddress: item.address?.street ?? '!!ERRO!!',
+            eventAddress: event.address?.street ?? '!!ERRO!!',
           ),
         );
       }),

@@ -18,7 +18,6 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
       ),
       centerTitle: true,
       backgroundColor: AppColor.purple,
-      toolbarHeight: 60,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(16),
@@ -68,7 +67,6 @@ class AppBarNavigatorWidget extends StatelessWidget
       ),
       centerTitle: true,
       backgroundColor: AppColor.purple,
-      toolbarHeight: 60,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(16),

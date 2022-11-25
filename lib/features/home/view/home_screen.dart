@@ -44,7 +44,7 @@ class HomeScreen extends StatelessWidget {
     return Column(
       children: [
         const SizedBox(
-          height: 55,
+          height: 40,
           child: TabBarWidget(),
         ),
         Expanded(
