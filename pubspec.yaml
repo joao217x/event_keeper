@@ -30,6 +30,9 @@ dependencies:
   #SERVICE LOCATOR
   get_it: ^7.2.0
 
+  #LOCAL STORAGE
+  shared_preferences: ^2.0.15
+
   #UX/UI
   flutter_svg: ^1.1.6
   google_fonts: ^3.0.1
