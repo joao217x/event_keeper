@@ -6,14 +6,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 class PrefsServiceImpl implements PrefsServiceInterface {
   final String eventsKey = 'eventsKey';
 
-  // @override
-  // Future<void> setStringList(List<EventModel> eventModel) async {
-  //   final prefs = await SharedPreferences.getInstance();
+  @override
+  Future<void> setStringList(List<EventModel> eventModel) async {
+    final prefs = await SharedPreferences.getInstance();
 
-  //   final eventsList = eventModel.map((e) => jsonEncode(e.toJson())).toList();
+    final eventsList = eventModel.map((e) => jsonEncode(e.toJson())).toList();
 
-  //   await prefs.setStringList(eventsKey, eventsList);
-  // }
+    await prefs.setStringList(eventsKey, eventsList);
+  }
 
   @override
   Future<List<EventModel>> getStringList() async {
