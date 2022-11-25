@@ -1,27 +1,28 @@
 import 'package:event_keeper/shared/theme/app_color.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class EventCard extends StatelessWidget {
   final String weekDay;
   final String dayAndMonth;
+  final IconButton iconButton;
+  final String thumbnail;
   final String eventName;
   final String eventDescription;
   final String eventStartTime;
   final String eventEndTime;
   final String eventAddress;
-  final IconButton iconButton;
 
   const EventCard({
     Key? key,
     required this.weekDay,
     required this.dayAndMonth,
+    required this.iconButton,
+    required this.thumbnail,
     required this.eventName,
     required this.eventDescription,
     required this.eventStartTime,
     required this.eventEndTime,
     required this.eventAddress,
-    required this.iconButton,
   }) : super(key: key);
 
   @override
@@ -32,7 +33,7 @@ class EventCard extends StatelessWidget {
   Widget _content() {
     return Card(
       child: Padding(
-        padding: const EdgeInsets.all(6),
+        padding: const EdgeInsets.all(8),
         child: IntrinsicHeight(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -106,9 +107,15 @@ class EventCard extends StatelessWidget {
   Widget _eventHeader() {
     return Padding(
       padding: const EdgeInsets.only(bottom: 4),
-      child: SvgPicture.asset(
-        'assets/event_header.svg',
-        fit: BoxFit.fitWidth,
+      child: Container(
+        constraints: const BoxConstraints(minHeight: 150, minWidth: 300),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          image: DecorationImage(
+            image: NetworkImage(thumbnail),
+            fit: BoxFit.cover,
+          ),
+        ),
       ),
     );
   }
@@ -176,21 +183,6 @@ class EventCard extends StatelessWidget {
             ),
           )
         ],
-      ),
-    );
-  }
-
-  Widget _saveEventButton() {
-    return TextButton.icon(
-      onPressed: () {},
-      icon: Icon(Icons.add_box),
-      label: Text(
-        'EVENTO NÃO SALVO',
-        style: TextStyle(
-          fontSize: 12,
-          fontWeight: FontWeight.w700,
-          color: AppColor.red,
-        ),
       ),
     );
   }

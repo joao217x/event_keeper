@@ -3,7 +3,6 @@ import 'package:event_keeper/shared/components/appbar_widget.dart';
 import 'package:event_keeper/shared/theme/app_color.dart';
 import 'package:event_keeper/shared/util/app_parses.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class SoftEventInfoTab extends StatelessWidget {
   const SoftEventInfoTab({Key? key}) : super(key: key);
@@ -28,7 +27,7 @@ class SoftEventInfoTab extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _eventHeader(),
+            _eventHeader(context),
             _eventName(context),
             _eventDescription(context),
             _eventDateAndTime(context),
@@ -39,24 +38,33 @@ class SoftEventInfoTab extends StatelessWidget {
     );
   }
 
-  Widget _eventHeader() {
+  Widget _eventHeader(context) {
+    final event = ModalRoute.of(context)?.settings.arguments as EventModel;
+
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: Center(
-        child:
-            // NetworkImage(),
-            SvgPicture.asset('assets/event_header.svg'),
+        child: Container(
+          constraints: const BoxConstraints(minHeight: 150, minWidth: 300),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            image: DecorationImage(
+              image: NetworkImage(event.thumbnail),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
       ),
     );
   }
 
   Widget _eventName(context) {
-    final item = ModalRoute.of(context)!.settings.arguments as EventModel;
+    final event = ModalRoute.of(context)?.settings.arguments as EventModel;
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
       child: Text(
-        item.eventName,
+        event.eventName,
         style: const TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.w600,
@@ -66,12 +74,12 @@ class SoftEventInfoTab extends StatelessWidget {
   }
 
   Widget _eventDescription(context) {
-    final item = ModalRoute.of(context)!.settings.arguments as EventModel;
+    final event = ModalRoute.of(context)?.settings.arguments as EventModel;
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: Text(
-        item.eventDescription,
+        event.eventDescription,
         style: const TextStyle(
           fontSize: 14,
           color: AppColor.grey,
@@ -94,7 +102,7 @@ class SoftEventInfoTab extends StatelessWidget {
   }
 
   Widget _eventDate(context) {
-    final item = ModalRoute.of(context)!.settings.arguments as EventModel;
+    final event = ModalRoute.of(context)?.settings.arguments as EventModel;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -108,9 +116,9 @@ class SoftEventInfoTab extends StatelessWidget {
           children: [
             Text(
               '${AppParses.weekDay(
-                DateTime.parse(item.startTime),
+                DateTime.parse(event.startTime),
               )} - ${AppParses.dayMonthYear(
-                DateTime.parse(item.startTime),
+                DateTime.parse(event.startTime),
               )}',
               style: const TextStyle(
                 fontSize: 14,
@@ -125,7 +133,7 @@ class SoftEventInfoTab extends StatelessWidget {
   }
 
   Widget _eventTime(context) {
-    final item = ModalRoute.of(context)!.settings.arguments as EventModel;
+    final event = ModalRoute.of(context)?.settings.arguments as EventModel;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -139,9 +147,9 @@ class SoftEventInfoTab extends StatelessWidget {
           children: [
             Text(
               '${AppParses.hour(
-                DateTime.parse(item.startTime),
+                DateTime.parse(event.startTime),
               )} - ${AppParses.hour(
-                DateTime.parse(item.endTime),
+                DateTime.parse(event.endTime),
               )}',
               style: const TextStyle(
                 fontSize: 14,
@@ -156,7 +164,7 @@ class SoftEventInfoTab extends StatelessWidget {
   }
 
   Widget _eventAddress(context) {
-    final item = ModalRoute.of(context)!.settings.arguments as EventModel;
+    final event = ModalRoute.of(context)?.settings.arguments as EventModel;
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -167,7 +175,7 @@ class SoftEventInfoTab extends StatelessWidget {
         ),
         const SizedBox(width: 5),
         Text(
-          '${item.address?.street}, ${item.address?.number},\n${item.address?.neighborhood}, ${item.address?.city}',
+          '${event.address?.street}, ${event.address?.number},\n${event.address?.neighborhood}, ${event.address?.city}',
           style: const TextStyle(
             fontSize: 14,
             color: AppColor.grey,
