@@ -1,7 +1,7 @@
-import 'package:event_keeper/shared/client/firebase/interface/firebase_client_interface.dart';
+import 'package:event_keeper/shared/client/auth/interface/auth_client_interface.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class FirebaseClientImpl implements FirebaseClientInterface {
+class FirebaseClientImpl implements AuthClientInterface {
   final FirebaseAuth client;
 
   FirebaseClientImpl({required this.client});

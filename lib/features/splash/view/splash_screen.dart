@@ -1,5 +1,5 @@
 import 'package:event_keeper/features/splash/controller/splash_controller.dart';
-import 'package:event_keeper/shared/core/app_dependencies.dart';
+import 'package:event_keeper/shared/service_locator/app_dependencies.dart';
 import 'package:event_keeper/shared/theme/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';

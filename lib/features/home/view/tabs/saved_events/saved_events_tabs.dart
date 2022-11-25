@@ -1,7 +1,7 @@
 import 'package:event_keeper/features/home/controller/prefs_controller.dart';
 import 'package:event_keeper/features/home/view/tabs/saved_events/error/saved_event_empty_list_tab.dart';
 import 'package:event_keeper/shared/components/event_card.dart';
-import 'package:event_keeper/shared/core/app_dependencies.dart';
+import 'package:event_keeper/shared/service_locator/app_dependencies.dart';
 import 'package:event_keeper/shared/util/app_parses.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';

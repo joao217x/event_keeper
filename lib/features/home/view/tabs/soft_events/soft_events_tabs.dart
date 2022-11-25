@@ -4,7 +4,7 @@ import 'package:event_keeper/features/home/view/tabs/soft_events/error/soft_even
 import 'package:event_keeper/features/home/view/tabs/soft_events/error/soft_event_non_registered_tab.dart';
 import 'package:event_keeper/shared/components/event_card.dart';
 import 'package:event_keeper/shared/theme/app_color.dart';
-import 'package:event_keeper/shared/core/app_dependencies.dart';
+import 'package:event_keeper/shared/service_locator/app_dependencies.dart';
 import 'package:event_keeper/shared/util/app_parses.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';

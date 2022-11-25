@@ -1,9 +1,5 @@
 # event_keeper
 
-A new Flutter project.
-
-## Getting Started
-
 Usuário para login:
 - fulano@email.com
 - 123456

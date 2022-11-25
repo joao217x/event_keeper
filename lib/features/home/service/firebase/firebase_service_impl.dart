@@ -1,9 +1,9 @@
 import 'package:event_keeper/features/home/service/firebase/interface/firebase_service_interface.dart';
-import 'package:event_keeper/shared/client/firebase/interface/firebase_client_interface.dart';
+import 'package:event_keeper/shared/client/auth/interface/auth_client_interface.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class FirebaseServiceImpl implements FirebaseServiceInterface {
-  final FirebaseClientInterface client;
+  final AuthClientInterface client;
 
   FirebaseServiceImpl({required this.client});
 

@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
-abstract class FirebaseClientInterface {
+abstract class AuthClientInterface {
   Future<UserCredential> login({
     required String email,
     required String password,

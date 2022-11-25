@@ -5,7 +5,7 @@ import 'package:event_keeper/shared/components/elevated_button_widget.dart';
 import 'package:event_keeper/shared/components/loading_widget.dart';
 import 'package:event_keeper/shared/components/txt_form_field_widget.dart';
 import 'package:event_keeper/shared/theme/app_color.dart';
-import 'package:event_keeper/shared/core/app_dependencies.dart';
+import 'package:event_keeper/shared/service_locator/app_dependencies.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';

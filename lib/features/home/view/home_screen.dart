@@ -3,7 +3,7 @@ import 'package:event_keeper/features/home/view/tabs/saved_events/saved_events_t
 import 'package:event_keeper/features/home/view/tabs/soft_events/soft_events_tabs.dart';
 import 'package:event_keeper/shared/components/appbar_widget.dart';
 import 'package:event_keeper/shared/components/tabs_widget.dart';
-import 'package:event_keeper/shared/core/app_dependencies.dart';
+import 'package:event_keeper/shared/service_locator/app_dependencies.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
