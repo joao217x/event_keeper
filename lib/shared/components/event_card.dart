@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class EventCard extends StatelessWidget {
   final String weekDay;
   final String dayAndMonth;
-  final IconButton iconButton;
+  final IconButton? iconButton;
   final String thumbnail;
   final String eventName;
   final String eventDescription;
@@ -16,7 +16,7 @@ class EventCard extends StatelessWidget {
     Key? key,
     required this.weekDay,
     required this.dayAndMonth,
-    required this.iconButton,
+    this.iconButton,
     required this.thumbnail,
     required this.eventName,
     required this.eventDescription,
@@ -58,7 +58,7 @@ class EventCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               _eventDate(),
-              iconButton,
+              iconButton ?? Container(),
             ],
           ),
         ),

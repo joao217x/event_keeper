@@ -51,7 +51,7 @@ class HomeScreen extends StatelessWidget {
           child: TabBarView(
             children: [
               SoftEventsTabs(),
-              const SavedEventsTabs(),
+              SavedEventsTabs(),
             ],
           ),
         ),

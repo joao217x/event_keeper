@@ -23,7 +23,7 @@ class _SavedEventEmptyListTabState extends State<SavedEventEmptyListTab> {
           const Padding(
             padding: EdgeInsets.only(top: 15),
             child: Text(
-              'Você ainda não criou nenhum evento',
+              'Você ainda não salvou nenhum evento',
             ),
           ),
         ],
