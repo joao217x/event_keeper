@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:event_keeper/features/home/controller/firebase_controller.dart';
+import 'package:event_keeper/features/home/controller/prefs_controller.dart';
 import 'package:event_keeper/features/home/service/event_api/event_api_service_impl.dart';
 import 'package:event_keeper/features/home/service/event_api/interface/event_api_service_interface.dart';
 import 'package:event_keeper/features/home/controller/api_controller.dart';
@@ -52,5 +53,6 @@ class AppDependencies {
     getIt.registerFactory<ApiController>(
       () => ApiController(eventApi: getIt<EventApiServiceInterface>()),
     );
+    getIt.registerFactory<PrefsController>(() => PrefsController());
   }
 }

@@ -11,23 +11,18 @@ class ApiController extends ChangeNotifier {
 
   List<EventModel> onlineEventList = [];
 
-  Future<List<EventModel>> getEventList() async {
+  Future<void> getEventList() async {
     try {
       initLoading();
-
       final response = await eventApi.getEventList();
       onlineEventList = response;
-
       endLoading();
 
       notifyListeners();
-      return onlineEventList;
     } catch (_) {
       setIsError(true);
-      setIsLoading(false);
 
       notifyListeners();
-      return [];
     }
   }
 
